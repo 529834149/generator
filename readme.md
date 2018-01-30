@@ -103,6 +103,21 @@ Generate the following:
 - [laralib/l5scaffold](https://github.com/laralib/l5scaffold)
 
 ##使用方法:
+```
 -1、通过composer安装扩展 composer require 'summerblue/generator:~0.5' --dev
 -2、php artisan make:scaffold Projects --schema="name:string:index,description:text:nullable,subscriber_count:integer:unsigned:default(0)"
 可以生成控制器、模型、迁移文件、表单验证类、授权类等一系列文件
+解释:
+创建话题的数据库迁移文件 —— 2017_09_26_111713_create_topics_table.php；
+创建话题数据工厂文件 —— TopicFactory.php；
+创建话题数据填充文件 —— TopicsTableSeeder.php；
+创建模型基类文件 —— Model.php， 并创建话题数据模型；
+创建话题控制器 —— TopicsController.php；
+创建表单请求的基类文件 —— Request.php，并创建话题表单请求验证类；
+创建话题模型事件监控器 TopicObserver 并在 AppServiceProvider 中注册；
+创建授权策略基类文件 —— Policy.php，同时创建话题授权类，并在 AuthServiceProvider 中注册；
+在 web.php 中更新路由，新增话题相关的资源路由；
+新建符合资源控制器要求的三个话题视图文件，并存放于 resources/views/topics 目录中；
+执行了数据库迁移命令 artisan migrate；
+因此次操作新建了多个文件，最终执行 composer dump-autoload 来生成 classmap。
+```
