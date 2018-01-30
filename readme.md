@@ -101,3 +101,8 @@ Generate the following:
 
 ## Thinks to
 - [laralib/l5scaffold](https://github.com/laralib/l5scaffold)
+
+##使用方法:
+-1、通过composer安装扩展 composer require 'summerblue/generator:~0.5' --dev
+-2、php artisan make:scaffold Projects --schema="name:string:index,description:text:nullable,subscriber_count:integer:unsigned:default(0)"
+可以生成控制器、模型、迁移文件、表单验证类、授权类等一系列文件
